@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "260506096564",
+    "firebase_url": "https://movies-auth-5c67a.firebaseio.com",
+    "project_id": "movies-auth-5c67a",
+    "storage_bucket": "movies-auth-5c67a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260506096564:android:4b957bbbe815beb3c258e1",
+        "android_client_info": {
+          "package_name": "com.example.movies_demo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260506096564-lpnjmaoepj9hg9234a5kueqjkopcknod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIj3cRuNO2WzqDvWoyUKBYT1dJkqyLrnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260506096564-lpnjmaoepj9hg9234a5kueqjkopcknod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
