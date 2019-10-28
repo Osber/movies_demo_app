@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_demo_app/components/dark_backgroud.dart';
+import 'package:movies_demo_app/providers/providers.dart';
 import 'package:movies_demo_app/screens/Login/login_form.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+
+import 'forgot_password.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -14,15 +18,18 @@ class LoginScreen extends StatelessWidget {
               children: <Widget>[
                 Center(
                   child: Text(
-                    'Movies App',
-                    style: TextStyle(color: Colors.white, fontSize: 40),
+                    'Movies',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontFamily: 'Montserrat'),
                   ),
                 ),
                 Center(
                   child: LoginForm(),
                 ),
                 LoginForgotPasswordButton(),
-                LoginSingUpButton(),
+                /* LoginSingUpButton(), */
               ],
             ),
           ),
@@ -39,7 +46,16 @@ class LoginForgotPasswordButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 15.0),
       child: Center(
         child: InkWell(
-          onTap: () => Navigator.of(context),
+          onTap: () => Navigator.of(context).push(
+            CupertinoPageRoute(
+              builder: (_) => ChangeNotifierProvider.value(
+                value: Provider.of<AccountBloc>(context),
+                child: Scaffold(
+                  body: PasswordRecoveryScreen(),
+                ),
+              ),
+            ),
+          ),
           child: Container(
             padding: EdgeInsets.all(5.0),
             child: Text(

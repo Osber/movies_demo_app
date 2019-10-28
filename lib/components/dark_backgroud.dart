@@ -16,7 +16,7 @@ class DarkBackgroud extends StatelessWidget {
               stops: [0, 1],
               colors: <Color>[
                 Color(0xFF606060),
-                Color(0xFF606060).withOpacity(0.9),
+                Colors.black,
               ],
             ),
           ),

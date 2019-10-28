@@ -3,12 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'login_email_text_field.dart';
-
-typedef void ParametersCallback(Map<String, dynamic> profile);
+import 'package:movies_demo_app/providers/providers.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
-  LoginForm();
-
   @override
   _LoginFormState createState() => _LoginFormState();
 }
@@ -105,7 +103,7 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    /*   final accountbloc = Provider.of<AccountBloc>(context); */
+    final accountbloc = Provider.of<AccountBloc>(context);
     return SizedBox(
       width: double.infinity,
       height: 334,
@@ -152,7 +150,6 @@ class _LoginFormState extends State<LoginForm> {
                 width: double.infinity,
                 child: Container(
                   margin: EdgeInsets.only(top: 15.0, bottom: 5.0),
-                  //child: _passFocusTime == _FocusTime.many && _hasPassError
                   child: _hasUserTriedToLogin
                       ? Text(
                           'Insert a password',
@@ -182,19 +179,19 @@ class _LoginFormState extends State<LoginForm> {
                 child: SizedBox(
                   width: double.infinity,
                   child: InkWell(
-                    onTap: () {
+                    onTap: () async {
                       if (_passController.text.length == 0) {
                         return setState(() => _hasUserTriedToLogin = true);
                       }
-                      /*      accountbloc
-                          .login(
-                        email: _userController.text,
-                        password: _passController.text,
+                      accountbloc
+                          .signIn(
+                        _userController.text,
+                        _passController.text,
                       )
                           .catchError((error) {
                         showDialog(
                             context: context, builder: (_) => LoginError());
-                      }); */
+                      });
                     },
                     child: Container(
                       height: 50.0,
@@ -207,7 +204,7 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                       child: Center(
                         child: Text(
-                          'Iniciar sesión',
+                          'Log in',
                           style: TextStyle(
                             fontSize: 18.0,
                             color: Colors.white,
